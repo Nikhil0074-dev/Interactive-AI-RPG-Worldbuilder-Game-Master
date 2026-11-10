@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    env_file: [{ path: .env, required: false }]
+    environment:
+      DATABASE_URL: sqlite:////app/data/rpg.db
+      ASSET_DIR: /app/data/assets
+      CORS_ORIGINS: http://localhost:3000
+    volumes: ["rpg-data:/app/data"]
+    ports: ["8000:8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 10s
+      retries: 5
+  frontend:
+    build:
+      context: ./frontend
+      args: { BACKEND_URL: "http://backend:8000" }
+    environment: { BACKEND_URL: "http://backend:8000" }
+    depends_on: { backend: { condition: service_healthy } }
+    ports: ["3000:3000"]
+volumes:
+  rpg-data:
