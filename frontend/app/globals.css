@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-ink text-parchment font-sans antialiased; background-image: radial-gradient(ellipse at top, #1a1f2b 0%, #0e1014 60%); min-height: 100vh; }
+h1, h2, h3, .font-title { @apply font-serif tracking-wide; }
+.panel { @apply bg-panel border border-edge rounded-lg; }
+.btn { @apply px-3 py-2 rounded-md border border-edge bg-panel2 text-parchment text-sm transition-colors hover:border-gold hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold disabled:opacity-40 disabled:cursor-not-allowed; }
+.btn-gold { @apply bg-gold text-ink border-gold font-semibold hover:bg-parchment hover:text-ink; }
+.input { @apply w-full bg-ink border border-edge rounded-md px-3 py-2 text-sm focus:outline focus:outline-2 focus:outline-gold; }
+.label { @apply block text-xs uppercase tracking-wider text-muted mb-1; }
+.bar { @apply h-2.5 rounded-full bg-ink overflow-hidden border border-edge; }
+.fade-in { animation: fade .35s ease-out; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+html[data-reduce-motion="true"] *, html[data-reduce-motion="true"] *::before { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } }
+.rarity-common { @apply text-muted border-edge; } .rarity-uncommon { @apply text-leaf border-leaf/50; }
+.rarity-rare { @apply text-mana border-mana/50; } .rarity-legendary { @apply text-gold border-gold/60; }
