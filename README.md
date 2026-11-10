@@ -22,6 +22,8 @@ It runs fully offline with no API keys: a deterministic mock Game Master and pro
 | ![Mechanics](docs/screenshots/13-combat-mechanics.png) **Engine mechanics log** | ![Load](docs/screenshots/15-load-checkpoint.png) **Load checkpoint** | ![Audio](docs/screenshots/16-audio-controls.png) **Audio controls** |
 | ![Mobile](docs/screenshots/17-mobile-story.png) **Mobile** | ![Mobile world](docs/screenshots/18-mobile-world.png) **Mobile world tab** | |
 
+| ![Artchitecture](docs/diagram.png) **Artchitecture** |
+
 ## Quick start
 
 Requirements: Python 3.11+ (tested 3.12), Node 20+ (tested 22).
